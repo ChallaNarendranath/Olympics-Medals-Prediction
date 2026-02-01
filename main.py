@@ -24,7 +24,6 @@ teams.plot.hist(y="medals")
 plt.show()
 
 nullvalues=teams[teams.isnull().any(axis=1)]
-#this show all 130 rows
 #nullvalues=teams[teams.isnull().any(axis=1)].head(25)
 #this is done to show only 25 rows instead of all null value rows
 print(nullvalues)
@@ -35,6 +34,7 @@ print(teams)
 size_of_teams=teams.shape
 #shape is  property not a function.SO, no parentheses
 print(size_of_teams)
+print(teams)
 
 train = teams[teams["year"] < 2012].copy()
 test = teams[teams["year"] >= 2012].copy()
@@ -43,7 +43,7 @@ print(train.shape)
 # About 20% of the data
 print(test.shape)
 
-reg = LinearRegression() #Creating an object (reg) of the LinearRegression model class.Preparing a ML model to learn a relationship between input features (X) and target output (y).LinearRegression is used to find the best straight line that fits our data.
+reg = LinearRegression() 
 predictors = ["athletes", "prev_medals"]
 reg.fit(train[predictors], train["medals"])
 
@@ -85,4 +85,5 @@ print(error_ratio)
 
 india_error = error_ratio['IND']
 print(india_error)
+
 
